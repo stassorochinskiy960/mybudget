@@ -1,7 +1,13 @@
 # budget/forms.py
 
 from django import forms
-from .models import Income, Expense
+from .models import Income, Expense, Category
+
+
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ['name']
 
 
 class IncomeForm(forms.ModelForm):

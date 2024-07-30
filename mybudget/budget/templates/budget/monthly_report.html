@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Monthly Report</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block container %}
     <h1>Monthly Report</h1>
     <h2>Incomes</h2>
     <ul>
@@ -21,6 +18,4 @@
     <a href="{% url 'add_expense' %}">Add Expense</a> |
     <a href="{% url 'logout' %}">Logout</a>
     <a href="{% url 'index' %}">Back to Index</a>
-</body>
-</html>
-<!DOCTYPE html>
+{% endblock container%}

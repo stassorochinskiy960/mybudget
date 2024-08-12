@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static 'child_templates.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+        <div class="nav-links">
+            <a href="{% url 'index' %}" class="active">Back to Home</a>
+            <a href="{% url 'add_income' %}">Add Income</a>
+            <a href="{% url 'add_expense' %}">Add Expense</a>
+            <a href="{% url 'create_category' %}">create category</a>
+            <a href="{% url 'monthly_report' %}">monthly report</a>
+            <a href="{% url 'add_note' %}">Add Note</a>
+            <a href="{% url 'login' %}">login</a>
+            <a href="{% url 'logout' %}">Logout</a>
+            <a href="{% url 'register' %}">register</a>
+            <a href="{% url 'print_report' %}">print report</a>
+            <a href="{% url 'admin:index' %}" class="icon" onclick="toggleMenu()"> &#9776; </a>
+        </div>
+    </div>
+    <div id="content">
+        {% block container %}
+        <!--child page content-->
+        {% endblock container %}
+    </div>
+    <div id="footer">
+        {% block footer %}
+
+        {% endblock %}
+    </div>
+</body>
+</html>

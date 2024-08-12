@@ -7,7 +7,24 @@ from .forms import IncomeForm, ExpenseForm, CategoryForm
 from .models import Income, Expense, Category
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
+from django.urls import reverse
+
 import datetime
+
+
+@login_required
+def print_report_view(request):
+    user = request.user
+    incomes = Income.objects.filter(user=user)
+    expenses = Expense.objects.filter(user=user)
+    category = Category.objects.filter(user=user)
+
+    context = {
+        'incomes': incomes,
+        'expenses': expenses,
+        'category': category,
+    }
+    return render(request, 'budget/print_report.html', context)
 
 
 @login_required
@@ -22,15 +39,6 @@ def create_category_view(request):
     else:
         form = CategoryForm()
     return render(request, 'budget/create_category.html', {'form': form})
-
-
-@login_required
-def delete_category_view(request, pk):
-    category = get_object_or_404(Category, pk=pk, user=request.user)
-    if request.method == 'POST':
-        category.delete()
-        return redirect('index')
-    return render(request, 'budget/delete_category.html', {'category': category})
 
 
 @login_required
@@ -112,6 +120,11 @@ def monthly_report_view(request):
     incomes = Income.objects.filter(user=request.user, date__gte=first_day).values('category__name').annotate(total=Sum('amount'))
     expenses = Expense.objects.filter(user=request.user, date__gte=first_day).values('category__name').annotate(total=Sum('amount'))
     return render(request, 'budget/monthly_report.html', {'categories': categories, 'incomes': incomes, 'expenses': expenses})
+
+
+def custom_login_redirect_view(request):
+    return redirect(reverse('register'))
+
 
 
 

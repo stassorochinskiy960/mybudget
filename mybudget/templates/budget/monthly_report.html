@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Index{% endblock %}
 {% block container %}
+<div>
     <h1>Monthly Report</h1>
     <h2>Incomes</h2>
     <ul>
@@ -14,8 +15,9 @@
             <li>{{ expense.category__name }}: {{ expense.total }}</li>
         {% endfor %}
     </ul>
-    <a href="{% url 'add_income' %}">Add Income</a> |
-    <a href="{% url 'add_expense' %}">Add Expense</a> |
-    <a href="{% url 'logout' %}">Logout</a>
-    <a href="{% url 'index' %}">Back to Index</a>
-{% endblock container%}
+    <button href="{% url 'add_income' %}">Add Income</button> |
+    <button href="{% url 'add_expense' %}">Add Expense</button> |
+    <button href="{% url 'logout' %}">Logout</button> |
+    <button href="{% url 'index' %}">Back to Index</button>
+</div>
+{% endblock container %}

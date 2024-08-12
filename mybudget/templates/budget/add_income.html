@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Add Income</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Add Income{% endblock %}
+{% block container %}
+<div>
     <h2>Add Income</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Add Income</button>
     </form>
-    <a href="{% url 'monthly_report' %}">Back to Report</a>
-</body>
-</html>
+</div>
+{% endblock container %}

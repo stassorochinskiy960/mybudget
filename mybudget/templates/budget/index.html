@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block container %}
+<div>
+    <div>Hi, that is the main page</div>
+
+    <h2 >All Notes</h2>
+    <ul>
+        {% for note in notes %}
+            <li>
+                <h3>{{ note.title }}</h3>
+                <p>{{ note.content }}</p>
+                <form action="{% url 'delete_note' note.pk %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock container %}

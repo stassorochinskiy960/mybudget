@@ -1,0 +1,19 @@
+    <div class="navbar">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+        <div class="nav-links">
+            <a href="{% url 'add_income' %}" class="active">Add Income</a> |
+            <a href="{% url 'add_expense' %}">Add Expense</a> |
+            <a href="{% url 'logout' %}">Logout</a>
+            <a href="{% url 'login' %}">login</a> |
+            <a href="{% url 'register' %}">register</a> |
+            <a href="{% url 'monthly_report' %}">monthly report</a>
+            <a href="{% url 'create_category' %}">create category</a>
+            <a href="javascript:void(0);" class="icon" onclick="toggleMenu()"> &#9776; </a>
+        </div>
+    </div>
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">

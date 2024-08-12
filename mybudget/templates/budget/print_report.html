@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Print Report{% endblock %}
+{% block container %}
+<div>
+    <h1>User Report: {{ user.username }}</h1>
+    <div>
+        <h2>Income</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Summa</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for income in incomes %}
+                    <tr>
+                        <td>{{ income.date }}</td>
+                        <td>{{ income.category.name }}</td>
+                        <td>{{ income.amount }}</td>
+                        <td>{{ income.description }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <h2>Expense</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Summa</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for expense in expenses %}
+                    <tr>
+                        <td>{{ expense.date }}</td>
+                        <td>{{ expense.category.name }}</td>
+                        <td>{{ expense.amount }}</td>
+                        <td>{{ expense.description }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <button onclick="window.print()">Печать</button>
+    </div>
+</div>
+{% endblock container %}

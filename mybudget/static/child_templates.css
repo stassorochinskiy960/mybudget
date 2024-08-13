@@ -1,6 +1,48 @@
 #content{
-    text-align: center;
-    margin-top: 70px;
+    /*text-align: center;
+    margin-top: 70px;*/
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.centered-block {
+    background-color: #333;
+    border-radius: 15px;
+    padding: 30px;
+    /*width: 300px;*/
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    color: white;
+    text-align: left;
+}
+
+.centered-block h2 {
+    margin-top: 0;
+    color: #4CAF50;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
 }
 
 #footer{

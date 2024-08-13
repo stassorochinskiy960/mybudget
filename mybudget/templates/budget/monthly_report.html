@@ -15,9 +15,9 @@
             <li>{{ expense.category__name }}: {{ expense.total }}</li>
         {% endfor %}
     </ul>
-    <button href="{% url 'add_income' %}">Add Income</button> |
-    <button href="{% url 'add_expense' %}">Add Expense</button> |
-    <button href="{% url 'logout' %}">Logout</button> |
-    <button href="{% url 'index' %}">Back to Index</button>
+    <a class="styled-link" href="{% url 'add_income' %}">Add Income</a> |
+    <a class="styled-link" href="{% url 'add_expense' %}">Add Expense</a> |
+    <a class="styled-link" href="{% url 'logout' %}">Logout</a> |
+    <a class="styled-link" href="{% url 'index' %}">Back to Index</a>
 </div>
 {% endblock container %}

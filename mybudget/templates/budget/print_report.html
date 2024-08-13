@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Print Report{% endblock %}
 {% block container %}
-<div>
+<div >
     <h1>User Report: {{ user.username }}</h1>
     <div>
         <h2>Income</h2>
@@ -14,7 +14,7 @@
                     <th>Description</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody >
                 {% for income in incomes %}
                     <tr>
                         <td>{{ income.date }}</td>
@@ -38,7 +38,7 @@
                     <th>Description</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody style="text-align: center;">
                 {% for expense in expenses %}
                     <tr>
                         <td>{{ expense.date }}</td>

@@ -8,6 +8,6 @@
         {% csrf_token %}
         <button type="submit">Logout</button>
     </form>
-    <button style="margin-top:10px" href="{% url 'monthly_report' %}">Cancel</button>
+    <a class="styled-link" style="margin-top:10px" href="{% url 'monthly_report' %}">Cancel</a>
 </div>
 {% endblock container %}
